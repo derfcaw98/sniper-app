@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BACCARAT SNIPER PRO</title>
+    <style>
+        body { font-family: sans-serif; background: #0c0c0c; color: white; text-align: center; margin: 0; }
+        .container { padding: 20px; max-width: 400px; margin: auto; }
+        .bet-display { font-size: 2.5rem; font-weight: bold; color: #00ff88; margin: 20px 0; padding: 20px; border: 2px solid #333; border-radius: 15px; }
+        .stake { font-size: 1.5rem; color: #f1c40f; margin-bottom: 20px; }
+        .btn { width: 45%; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 10px; border: none; cursor: pointer; margin: 5px; }
+        .btn-b { background: #e74c3c; color: white; }
+        .btn-p { background: #3498db; color: white; }
+        .status { font-size: 0.8rem; color: #666; margin-top: 10px; }
+        /* Ad Placement Area */
+        .ad-banner { width: 100%; height: 50px; background: #1a1a1a; margin-top: 20px; line-height: 50px; color: #444; font-size: 0.7rem; border-top: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 style="color: #00ff88;">SNIPER v1.0</h2>
+    
+    <div id="displayBet" class="bet-display">WAITING...</div>
+    <div id="displayStake" class="stake">---</div>
+
+    <div>
+        <button class="btn btn-b" onclick="inputHand('B')">BANKER</button>
+        <button class="btn btn-p" onclick="inputHand('P')">PLAYER</button>
+    </div>
+
+    <div class="status" id="serverStatus">Connecting to Brain...</div>
+    
+    <button style="margin-top:20px; background:none; border:1px solid #444; color:#888; padding:5px 10px; border-radius:5px;" onclick="resetShoe()">RESET SHOE</button>
+</div>
+
+<div class="ad-banner">ADSENSE BANNER HERE</div>
+
+<script>
+    const BRAIN_URL = "https://baccarat-brain.onrender.com/get-bet";
+    let history = [];
+
+    async function inputHand(side) {
+        history.push(side);
+        document.getElementById('serverStatus').innerText = "Analyzing...";
+
+        try {
+            const response = await fetch(BRAIN_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ history: history, userId: "USER1" })
+            });
+            const data = await response.json();
+            
+            document.getElementById('displayBet').innerText = data.recommendation;
+            document.getElementById('displayStake').innerText = data.stake;
+            document.getElementById('serverStatus').innerText = "Online";
+        } catch (error) {
+            document.getElementById('serverStatus').innerText = "Brain is sleeping. Wait 50s...";
+        }
+    }
+
+    function resetShoe() {
+        history = [];
+        document.getElementById('displayBet').innerText = "WAITING...";
+        document.getElementById('displayStake').innerText = "---";
+        alert("Shoe Reset. Watch an interstitial ad? (Ad logic next!)");
+    }
+</script>
+</body>
+</html>
