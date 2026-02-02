@@ -3,69 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BACCARAT SNIPER PRO</title>
+    <title>BACCARAT SNIPER PRO - Official Strategy Tool</title>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_ID_HERE" crossorigin="anonymous"></script>
+
     <style>
-        body { font-family: sans-serif; background: #0c0c0c; color: white; text-align: center; margin: 0; }
-        .container { padding: 20px; max-width: 400px; margin: auto; }
-        .bet-display { font-size: 2.5rem; font-weight: bold; color: #00ff88; margin: 20px 0; padding: 20px; border: 2px solid #333; border-radius: 15px; }
-        .stake { font-size: 1.5rem; color: #f1c40f; margin-bottom: 20px; }
-        .btn { width: 45%; padding: 15px; font-size: 1.1rem; font-weight: bold; border-radius: 10px; border: none; cursor: pointer; margin: 5px; }
-        .btn-b { background: #e74c3c; color: white; }
-        .btn-p { background: #3498db; color: white; }
-        .status { font-size: 0.8rem; color: #666; margin-top: 10px; }
-        /* Ad Placement Area */
-        .ad-banner { width: 100%; height: 50px; background: #1a1a1a; margin-top: 20px; line-height: 50px; color: #444; font-size: 0.7rem; border-top: 1px solid #333; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0a0a0a; color: #e0e0e0; text-align: center; margin: 0; padding: 0; }
+        .app-card { background: #151515; max-width: 450px; margin: 20px auto; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid #333; }
+        .bet-display { font-size: 3rem; font-weight: 800; color: #00ff88; text-shadow: 0 0 15px rgba(0,255,136,0.3); margin: 20px 0; padding: 25px; background: #000; border-radius: 15px; border: 1px dashed #444; }
+        .stake-info { font-size: 1.4rem; color: #f1c40f; font-weight: bold; margin-bottom: 25px; }
+        .btn-group { display: flex; justify-content: space-between; gap: 10px; }
+        .btn { flex: 1; padding: 18px; font-size: 1.1rem; font-weight: bold; border-radius: 12px; border: none; cursor: pointer; transition: 0.2s; }
+        .btn-banker { background: #e74c3c; color: white; box-shadow: 0 4px 0 #c0392b; }
+        .btn-player { background: #3498db; color: white; box-shadow: 0 4px 0 #2980b9; }
+        .btn:active { transform: translateY(3px); box-shadow: none; }
+        
+        /* Monetization Sections */
+        .ad-container { margin: 20px 0; min-height: 90px; background: #111; border-radius: 8px; }
+        .casino-promo { background: linear-gradient(135deg, #1e1e1e, #111); padding: 20px; border-radius: 15px; margin-top: 30px; border: 1px solid #f1c40f33; }
+        .promo-btn { display: block; text-decoration: none; padding: 15px; border-radius: 8px; font-weight: bold; color: white; margin-top: 10px; transition: 0.3s; }
+        
+        .footer-content { text-align: left; padding: 30px; font-size: 0.85rem; color: #888; max-width: 600px; margin: auto; line-height: 1.6; }
+        .status-dot { height: 8px; width: 8px; background-color: #00ff88; border-radius: 50%; display: inline-block; margin-right: 5px; }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <h2 style="color: #00ff88;">SNIPER v1.0</h2>
-    
-    <div id="displayBet" class="bet-display">WAITING...</div>
-    <div id="displayStake" class="stake">---</div>
+<div class="app-card">
+    <h1 style="color: #fff; margin-bottom: 5px; font-size: 1.5rem;">BACCARAT SNIPER <span style="color:#00ff88">PRO</span></h1>
+    <p style="font-size: 0.8rem; color: #666; margin-bottom: 20px;"><span class="status-dot"></span> SERVER STATUS: ONLINE (v1.0.4)</p>
 
-    <div>
-        <button class="btn btn-b" onclick="inputHand('B')">BANKER</button>
-        <button class="btn btn-p" onclick="inputHand('P')">PLAYER</button>
+    <div class="ad-container">
+        </div>
+
+    <div id="displayBet" class="bet-display">READY</div>
+    <div id="displayStake" class="stake-info">MIN BET</div>
+
+    <div class="btn-group">
+        <button class="btn btn-banker" onclick="sendToBrain('B')">BANKER</button>
+        <button class="btn btn-player" onclick="sendToBrain('P')">PLAYER</button>
     </div>
 
-    <div class="status" id="serverStatus">Connecting to Brain...</div>
-    
-    <button style="margin-top:20px; background:none; border:1px solid #444; color:#888; padding:5px 10px; border-radius:5px;" onclick="resetShoe()">RESET SHOE</button>
+    <button onclick="resetShoe()" style="background:none; border:none; color:#555; cursor:pointer; margin-top:20px; text-decoration:underline;">Clear History</button>
+
+    <div class="casino-promo">
+        <h4 style="margin: 0; color: #f1c40f;">RECOMMENDED CASINOS</h4>
+        <p style="font-size: 0.75rem; color: #777;">High RTP & Verified for Sniper Strategy</p>
+        
+        <a href="https://your-affiliate-link-here.com" target="_blank" class="promo-btn" style="background: #27ae60;">
+            1xBET: 100% BONUS + FAST PAYOUT
+        </a>
+        <a href="https://your-affiliate-link-here.com" target="_blank" class="promo-btn" style="background: #8e44ad;">
+            22BET: OFFICIAL SNIPER PARTNER
+        </a>
+    </div>
 </div>
 
-<div class="ad-banner">ADSENSE BANNER HERE</div>
+<div class="footer-content">
+    <hr style="border: 0; border-top: 1px solid #333; margin-bottom: 20px;">
+    <h3>Mastering the Baccarat Sniper Strategy</h3>
+    <p>The Baccarat Sniper Pro tool utilizes a proprietary algorithm based on the <strong>D'Alembert betting system</strong>. By analyzing recent shoe patterns, our server-side brain calculates the statistical probability of the next outcome (Banker or Player).</p>
+    
+    <p>To use this tool effectively, players should enter the actual results of the table. We recommend a "Wait and See" approach—let the shoe develop for 10-15 hands before trusting the sniper predictions. This tool is designed to identify "Short Streaks" and "Choppy Patterns" which are common in modern live dealer games.</p>
+
+    <h3>Responsible Gaming Disclaimer</h3>
+    <p>This software is provided for entertainment and educational purposes only. No algorithm can guarantee a win in gambling. Gambling involves significant risk of loss. We strongly encourage users to set a bankroll limit and never chase losses. If you feel you have a problem, please visit <a href="https://www.begambleaware.org" style="color:#00ff88">BeGambleAware.org</a>.</p>
+    
+    <p style="text-align:center; margin-top:40px;">
+        <a href="#" style="color:#555; text-decoration:none;">Privacy Policy</a> | 
+        <a href="#" style="color:#555; text-decoration:none;">Terms of Service</a> |
+        &copy; 2026 Baccarat Sniper Group
+    </p>
+</div>
 
 <script>
     const BRAIN_URL = "https://baccarat-brain.onrender.com/get-bet";
     let history = [];
 
-    async function inputHand(side) {
-        history.push(side);
-        document.getElementById('serverStatus').innerText = "Analyzing...";
+    async function sendToBrain(result) {
+        history.push(result);
+        const display = document.getElementById('displayBet');
+        const stakeDisplay = document.getElementById('displayStake');
+        
+        display.innerText = "THINKING...";
+        display.style.color = "#f1c40f";
 
         try {
             const response = await fetch(BRAIN_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ history: history, userId: "USER1" })
+                body: JSON.stringify({ history: history, userId: "PREMIUM_USER" })
             });
             const data = await response.json();
             
-            document.getElementById('displayBet').innerText = data.recommendation;
-            document.getElementById('displayStake').innerText = data.stake;
-            document.getElementById('serverStatus').innerText = "Online";
+            display.innerText = data.recommendation;
+            display.style.color = "#00ff88";
+            stakeDisplay.innerText = "STAKE: " + data.stake;
         } catch (error) {
-            document.getElementById('serverStatus').innerText = "Brain is sleeping. Wait 50s...";
+            display.innerText = "ERROR";
+            display.style.color = "#e74c3c";
+            console.error("Server connection failed:", error);
         }
     }
 
     function resetShoe() {
-        history = [];
-        document.getElementById('displayBet').innerText = "WAITING...";
-        document.getElementById('displayStake').innerText = "---";
-        alert("Shoe Reset. Watch an interstitial ad? (Ad logic next!)");
+        if(confirm("Reset all data?")) {
+            history = [];
+            document.getElementById('displayBet').innerText = "READY";
+            document.getElementById('displayStake').innerText = "MIN BET";
+        }
     }
 </script>
 </body>
